@@ -1,0 +1,9 @@
+<Solution>
+  <Project Path="API/API.csproj" />
+  <Project Path="Contracts/Contracts.csproj" />
+  <Project Path="Domain/Domain.csproj" />
+  <Project Path="Persistence.Interfaces/Persistence.Interfaces.csproj" />
+  <Project Path="Persistence.SqlServer/Persistence.SqlServer.csproj" />
+  <Project Path="ServiceTests/ServiceTests.csproj" Id="f2e6712d-ef56-45ef-b36c-8848b699d2c0" />
+  <Project Path="UnitTests/UnitTests.csproj" Id="91455f38-0d9d-4d80-99a2-b64562d705e7" />
+</Solution>
