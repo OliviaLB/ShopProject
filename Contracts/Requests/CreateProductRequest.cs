@@ -1,13 +1,32 @@
-﻿namespace Contracts.Requests;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Contracts.Requests;
 
 public class CreateProductRequest
 {
-    public required string Name { get; set; }
-    public required string Description { get; set; }
-    public required long Price { get; set; }
-    public required string PictureUri { get; set; }
-    public required string Type { get; set; }
-    public required string Brand { get; set; }
-    public required int QuantityInStock { get; set; }
+    [Required]
+    [StringLength(200)]
+    public string Name { get; set; } = default!;
+
+    [Required]
+    [StringLength(2000)]
+    public string Description { get; set; } = default!;
+
+    [Range(0, long.MaxValue)]
+    public long Price { get; set; }
+
+    [Required]
+    public string PictureUri { get; set; } = default!;
+
+    [Required]
+    [StringLength(100)]
+    public string Type { get; set; } = default!;
+
+    [Required]
+    [StringLength(100)]
+    public string Brand { get; set; } = default!;
+
+    [Range(0, int.MaxValue)]
+    public int QuantityInStock { get; set; }
 
 }

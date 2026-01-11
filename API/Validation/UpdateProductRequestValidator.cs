@@ -33,8 +33,5 @@ public class UpdateProductRequestValidator : AbstractValidator<UpdateProductRequ
         RuleFor(x => x.QuantityInStock)
             .GreaterThanOrEqualTo(0)
             .When(x => x.QuantityInStock.HasValue);
-
-        RuleFor(x => x.ChangeTimestamp)
-            .NotEmpty();
     }
 }

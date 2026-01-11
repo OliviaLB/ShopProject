@@ -29,11 +29,6 @@ public class ProductWriter : IProductWriter
 
         else
         {
-            if (dbProduct.ChangeTimestamp > product.ChangeTimestamp)
-            {
-                return;
-            }
-
             _dbContext.Entry(dbProduct).CurrentValues.SetValues(product);
         }
 
