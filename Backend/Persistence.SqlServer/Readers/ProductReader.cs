@@ -42,7 +42,7 @@ public class ProductReader : IProductReader
 
         var desc = pagination.SortDirection == SortDirection.Desc;
 
-        query = filters.SortField switch
+        query = pagination.SortField switch
         {
             nameof(Product.Name) => desc
                 ? query.OrderByDescending(p => p.Name).ThenByDescending(p => p.Id)
@@ -66,16 +66,6 @@ public class ProductReader : IProductReader
         };
 
         var totalItems = await query.CountAsync(cancellationToken);
-
-        if (pagination.ReturnAll == true)
-        {
-            var allItems = await query.ToListAsync(cancellationToken);
-            return new PagedList<Product>(
-                allItems,
-                pageNumber: 1,
-                pageSize: allItems.Count,
-                totalItems: allItems.Count);
-        }
 
         var pageNumber = pagination.PageNumber < 1 ? 1 : pagination.PageNumber;
         var pageSize = pagination.PageSize < 1 ? 10 : pagination.PageSize;

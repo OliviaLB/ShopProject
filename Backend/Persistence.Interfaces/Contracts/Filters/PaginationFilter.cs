@@ -1,9 +1,9 @@
 ﻿namespace Persistence.Interfaces.Contracts.Filters;
 
-public class PaginationFilter
+public record PaginationFilter
 {
-    public bool ReturnAll { get; set; } = false;
-    public int PageNumber { get; set; } = 1;
-    public int PageSize { get; set; } = 10;
-    public SortDirection SortDirection { get; set; } = SortDirection.Desc;
+    public int PageNumber { get; init; } = 1;
+    public int PageSize { get; init; } = 10;
+    public string? SortField { get; init; }
+    public SortDirection SortDirection { get; init; } = SortDirection.Desc;
 }

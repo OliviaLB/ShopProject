@@ -11,7 +11,7 @@ public partial class Mapper
     {
         return new PersistanceFilters.PaginationFilter
         {
-            ReturnAll = filter.ReturnAll,
+            SortField = filter.SortField,
             PageNumber = filter.PageNumber,
             PageSize = filter.PageSize,
             SortDirection = MapToPersistence(filter.SortDirection),
@@ -36,7 +36,6 @@ public partial class Mapper
             Ids = filters.Ids,
             Brands = filters.Brands,
             Types = filters.Types,
-            SortField = filters.SortField,
             InStockOnly = filters.InStockOnly,
             SearchTerm = filters.SearchTerm,
         };

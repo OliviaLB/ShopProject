@@ -11,6 +11,6 @@ public interface IProductReader
 
     Task<PagedList<Product>> GetAll(
         ProductFilters filters,
-        PaginationFilter pagination,
+        PaginationFilter? pagination,
         CancellationToken cancellationToken);
 }

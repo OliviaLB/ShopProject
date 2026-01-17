@@ -17,13 +17,7 @@ public class Program
 
         builder.Services.AddAuthorization();
 
-        builder.Services.AddCors(options =>
-        {
-            options.AddPolicy("AllowAll", policy =>
-                policy.AllowAnyOrigin()
-                      .AllowAnyMethod()
-                      .AllowAnyHeader());
-        });
+        builder.Services.AddCors();
 
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwagger(builder.Configuration);
@@ -32,6 +26,15 @@ public class Program
 
         var app = builder.Build();
 
+        app.UseCors("AllowAll");
+
+        app.UseCors(opt =>
+        {
+            opt
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .WithOrigins("https://localhost:3000");
+        });
         app.UseExceptionHandler();
 
         if (builder.Environment.IsDevelopmentEnvironment())
@@ -41,7 +44,6 @@ public class Program
         }
 
         app.UseHttpsRedirection();
-        app.UseCors("AllowAll");
         app.UseAuthorization();
         app.MapEndpoints();
 

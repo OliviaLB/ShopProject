@@ -29,9 +29,9 @@ public class ProductPersistenceMapperTests
 
         var result = _sut.MapToPersistence(contract);
 
-        result.ReturnAll.ShouldBe(contract.ReturnAll);
         result.PageNumber.ShouldBe(contract.PageNumber);
         result.PageSize.ShouldBe(contract.PageSize);
+        result.SortField.ShouldBe(contract.SortField);
         result.SortDirection.ShouldBe(PersistanceFilters.SortDirection.Asc);
     }
 
@@ -67,7 +67,6 @@ public class ProductPersistenceMapperTests
         result.Ids.ShouldBe(contract.Ids);
         result.Brands.ShouldBe(contract.Brands);
         result.Types.ShouldBe(contract.Types);
-        result.SortField.ShouldBe(contract.SortField);
         result.InStockOnly.ShouldBe(contract.InStockOnly);
         result.SearchTerm.ShouldBe(contract.SearchTerm);
     }

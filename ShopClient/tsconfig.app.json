@@ -9,20 +9,25 @@
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
+    "isolatedModules": true,
     "jsx": "react-jsx",
+    "moduleDetection": "force",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "verbatimModuleSyntax": true,
 
     /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
+    "alwaysStrict": true, // parses files in strict mode + emits "use strict"
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noImplicitAny": true, // error on variables that implicitly have 'any' type
+    "noImplicitThis": true, // error on 'this' expressions with an implied 'any' type
+    "noUncheckedSideEffectImports": true,
+    "strict": true,
+    "strictBindCallApply": true, // catches bad usage of .bind(), .call(), .apply()
+    "strictFunctionTypes": true, // ensures function parameters are checked more strictly
+    "strictNullChecks": true, // null/undefined are only assignable to themselves
+    "useUnknownInCatchVariables": true // forces you to properly type `catch` blocks
   },
   "include": ["src", "tests"]
 }
