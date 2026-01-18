@@ -8,10 +8,14 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "review": "start .\\coverage\\index.html",
+    "generate:routes": "tsr generate"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.19",
+    "@tanstack/react-router": "^1.151.3",
     "axios": "^1.13.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
@@ -19,6 +23,8 @@
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@tailwindcss/vite": "^4.1.18",
+    "@tanstack/router-cli": "^1.151.5",
+    "@tanstack/router-plugin": "^1.151.5",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.1",
     "@testing-library/user-event": "^14.6.1",

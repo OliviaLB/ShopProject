@@ -4,30 +4,30 @@ import { SortDirections, type PaginationRequest } from './services/Common/Common
 import type { GetProductFilters } from './services/Product';
 
 const App = () => {
-  const pagination = useMemo<PaginationRequest>(
-    () => ({
-      sortDirection: SortDirections.Descending,
-      pageNumber: 1,
-      pageSize: 20,
-      sortField: 'Price'
-    }),
-    []
-  );
+  // const pagination = useMemo<PaginationRequest>(
+  //   () => ({
+  //     sortDirection: SortDirections.Descending,
+  //     pageNumber: 1,
+  //     pageSize: 20,
+  //     sortField: 'Price'
+  //   }),
+  //   []
+  // );
 
-  const filters = useMemo<GetProductFilters>(
-    () => ({
-      types: ['Hats', 'Boots']
-    }),
-    []
-  );
+  // const filters = useMemo<GetProductFilters>(
+  //   () => ({
+  //     types: ['Hats', 'Boots']
+  //   }),
+  //   []
+  // );
 
-  const { data, isLoading } = useFetchPaginatedProducts(pagination, filters);
+  // const { data, isLoading } = useFetchPaginatedProducts(pagination, filters);
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <div>
-      {!isLoading && (
+      {/* {!isLoading && (
         <ul>
           {data?.items.map((x) => (
             <li key={x.id}>
@@ -35,7 +35,7 @@ const App = () => {
             </li>
           ))}
         </ul>
-      )}
+      )} */}
     </div>
   );
 };
