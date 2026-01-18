@@ -2,11 +2,20 @@ import { defineConfig, type UserConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import tailwindcss from '@tailwindcss/vite';
 import mkcert from 'vite-plugin-mkcert';
+import { tanstackRouter } from '@tanstack/router-plugin/vite';
 
 const buildTimestamp = new Date().getTime();
 
 export default defineConfig({
-  plugins: [react(), tailwindcss(), mkcert()],
+  plugins: [
+    tanstackRouter({
+      target: 'react',
+      autoCodeSplitting: true
+    }),
+    react(),
+    tailwindcss(),
+    mkcert()
+  ],
   server: {
     port: 3000
   },

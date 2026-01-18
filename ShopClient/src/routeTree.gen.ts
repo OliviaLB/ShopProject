@@ -12,7 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EmporiumIndexRouteImport } from './routes/Emporium/index'
 import { Route as AboutIndexRouteImport } from './routes/About/index'
-import { Route as EmporiumProductIdIndexRouteImport } from './routes/Emporium/$productId/index'
+import { Route as EmporiumProductIdRouteImport } from './routes/Emporium/$productId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -29,44 +29,44 @@ const AboutIndexRoute = AboutIndexRouteImport.update({
   path: '/About/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EmporiumProductIdIndexRoute = EmporiumProductIdIndexRouteImport.update({
-  id: '/Emporium/$productId/',
-  path: '/Emporium/$productId/',
+const EmporiumProductIdRoute = EmporiumProductIdRouteImport.update({
+  id: '/Emporium/$productId',
+  path: '/Emporium/$productId',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/Emporium/$productId': typeof EmporiumProductIdRoute
   '/About/': typeof AboutIndexRoute
   '/Emporium/': typeof EmporiumIndexRoute
-  '/Emporium/$productId/': typeof EmporiumProductIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/Emporium/$productId': typeof EmporiumProductIdRoute
   '/About': typeof AboutIndexRoute
   '/Emporium': typeof EmporiumIndexRoute
-  '/Emporium/$productId': typeof EmporiumProductIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/Emporium/$productId': typeof EmporiumProductIdRoute
   '/About/': typeof AboutIndexRoute
   '/Emporium/': typeof EmporiumIndexRoute
-  '/Emporium/$productId/': typeof EmporiumProductIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/About/' | '/Emporium/' | '/Emporium/$productId/'
+  fullPaths: '/' | '/Emporium/$productId' | '/About/' | '/Emporium/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/About' | '/Emporium' | '/Emporium/$productId'
-  id: '__root__' | '/' | '/About/' | '/Emporium/' | '/Emporium/$productId/'
+  to: '/' | '/Emporium/$productId' | '/About' | '/Emporium'
+  id: '__root__' | '/' | '/Emporium/$productId' | '/About/' | '/Emporium/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EmporiumProductIdRoute: typeof EmporiumProductIdRoute
   AboutIndexRoute: typeof AboutIndexRoute
   EmporiumIndexRoute: typeof EmporiumIndexRoute
-  EmporiumProductIdIndexRoute: typeof EmporiumProductIdIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -92,11 +92,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/Emporium/$productId/': {
-      id: '/Emporium/$productId/'
+    '/Emporium/$productId': {
+      id: '/Emporium/$productId'
       path: '/Emporium/$productId'
-      fullPath: '/Emporium/$productId/'
-      preLoaderRoute: typeof EmporiumProductIdIndexRouteImport
+      fullPath: '/Emporium/$productId'
+      preLoaderRoute: typeof EmporiumProductIdRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -104,9 +104,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EmporiumProductIdRoute: EmporiumProductIdRoute,
   AboutIndexRoute: AboutIndexRoute,
   EmporiumIndexRoute: EmporiumIndexRoute,
-  EmporiumProductIdIndexRoute: EmporiumProductIdIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

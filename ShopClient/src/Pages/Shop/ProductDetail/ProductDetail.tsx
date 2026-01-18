@@ -2,7 +2,7 @@ import { useParams } from '@tanstack/react-router';
 
 const ProductDetail = () => {
   const productId = useParams({
-    from: '/Emporium/$productId/',
+    from: '/Emporium/$productId',
     select: (params) => params.productId
   });
 
